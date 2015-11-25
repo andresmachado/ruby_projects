@@ -1,30 +1,30 @@
-require ('./aluno.rb');
+require ('./student.rb');
 
-def sair ( answer )
-  answer == 's' ? true : false
+def continue ( answer )
+  answer == 'y' ? true : false
 end
 
-print "Qual seu nome? "
-aluno = gets.chomp
+print "Enter the student name: "
+name = gets.chomp
 
-print "Qual seu sexo? (M ou F) "
-sexo = gets.chomp
+print "Student sex: (M/F) "
+sex = gets.chomp
 
-aluno = Aluno.new(aluno, sexo);
+student = Student.new(name, sex);
 
 begin
-  print "Digite uma nota: "
-  nota = gets.chomp
-  nota = nota.to_f
-  aluno.adiciona_nota = aluno.nota_menor_que_zero?( nota )
+  print "Enter grade: "
+  grade = gets.chomp
+  grade = grade.to_f
+  student.add_grade = student.lower_than_zero?( grade )
 
-  print "Deseja adicionar mais notas? (s/n): "
+  print "Add more grades? (y/n): "
   answer = gets.chomp.downcase
 
-  sair = sair(answer)
-end while sair
+  continue = continue(answer)
+end while continue
 
-media = aluno.calcula_media
+average = student.average
 
-puts ( "#{aluno.nome} com media #{media}" )
-puts ( "Todas as notas: #{aluno.notas}" )
+puts ( "#{student.name} with #{average} average" )
+puts ( "All grades: #{student.grades}" )
