@@ -7,7 +7,7 @@ class Task
     @status = status
   end
 
-  def update_task=( status )
+  def update_task=(status)
     @status = status
   end
 
