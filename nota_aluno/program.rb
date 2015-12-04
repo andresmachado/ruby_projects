@@ -26,5 +26,7 @@ end while continue
 
 average = student.average
 
-puts ( "#{student.name} with #{average} average" )
+printf ( "#{student.name} with #{"%0.02f\n", average} average" )
 puts ( "All grades: #{student.grades}" )
+puts ( "Higher grade: #{student.grades.max}" )
+puts ( "Lower grade: #{student.grades.min}" )

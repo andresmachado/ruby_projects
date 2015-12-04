@@ -9,7 +9,7 @@ class Student
   end
 
   def grades
-    return @@grades.inspect
+    return @@grades
   end
 
   def add_grade=( grade )
@@ -17,8 +17,8 @@ class Student
   end
 
   def average
-    total = 0
     count = 0
+    total = 0
 
     @@grades.each do |grade|
       total += grade
