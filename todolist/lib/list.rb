@@ -1,23 +1,25 @@
 class List
 
-  PATH = File.expand_path("./lists/")
-  EXTENSION = ".txt"
-
   attr_accessor :name
+
+  # Constants for file manipulation.
+  PATH = File.expand_path("../lists/")
+  EXTENSION = ".txt"
 
   def initialize(name)
     @name = name
     create_list_file(@name, PATH, EXTENSION)
   end
 
-  def add_task( task )
+  def add_task_to_list( task )
   end
 
-  def remove_task( task )
+  def remove_task_from_list( task )
   end
 
   def delete_list
-    File.delete(@name << EXTENSION)
+    File.delete("#{PATH}/#{@name}")
+    puts("List deleted")
   end
 
   private
@@ -28,6 +30,3 @@ class List
   end
 
 end
-
-# shopping_list = List.new("shopping_list")
-# shopping_list.delete_list

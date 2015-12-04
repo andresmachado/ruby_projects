@@ -21,11 +21,10 @@ loop do
   when "create" then
     print "What's the name of the list? "
     name = gets.downcase.chomp!
-    name = name + "_list"
     add_new_list(name)
 
     loop do
-      print "Do you want to add new tasks to #{name}? (yes/no) "
+      print "Do you want to add new tasks to '#{name}' list? (yes/no) "
       add_task = gets.downcase.chomp
 
       case add_task
@@ -40,8 +39,8 @@ loop do
         next
       end
     end
-  when "open" then puts("Task opened")
-  when "show" then puts("All tasks")
+  when "open" then puts("List opened")
+  when "show" then puts("All lists")
   when "exit" then
     break
   else
