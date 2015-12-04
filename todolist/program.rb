@@ -1,25 +1,38 @@
-require 'list'
-require 'task'
+require File.expand_path('./lib/list.rb')
+require File.expand_path('./lib/task.rb')
+
+def add_new_list(name)
+  puts("List '#{name}' created!")
+end
+
+def add_new_task_to_list( description )
+  puts("Task '#{description}' added! to list")
+end
 
 loop do
-  puts "Welcome to your To-Do list manager, what do you want 'todo'?\n"
-  puts "0 - Create a new list\n1 - Open an existent list\n2 - Show all lists\n3 - Exit program"
-  answer = gets.chomp.to_i
+  puts("============================================================")
+  puts("Welcome to your To-Do list manager, what do you want 'todo'?")
+  puts("============================================================")
+
+  puts("[Create] a new list\n[Open] an existing list\n[Show] all lists\n[Exit] program")
+  answer = gets.downcase.chomp
 
   case (answer)
-  when 0 then
+  when "create" then
     print "What's the name of the list? "
     name = gets.downcase.chomp!
     name = name + "_list"
-    #= List.new(name)
-    puts "#{name} created!"
+    add_new_list(name)
 
     loop do
       print "Do you want to add new tasks to #{name}? (yes/no) "
       add_task = gets.downcase.chomp
+
       case add_task
       when "yes" then
-        puts("Task added")
+        print "Create a description for task: "
+        description = gets.chomp
+        add_new_task_to_list(description)
       when "no" then
         break
       else
@@ -27,9 +40,9 @@ loop do
         next
       end
     end
-  when 1 then puts("Task opened")
-  when 2 then puts("All tasks")
-  when 3 then
+  when "open" then puts("Task opened")
+  when "show" then puts("All tasks")
+  when "exit" then
     break
   else
     puts("It's not a valid option")
