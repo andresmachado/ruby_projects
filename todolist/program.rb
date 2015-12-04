@@ -1,8 +1,9 @@
-# require 'todo'
+require 'list'
+require 'task'
 
 loop do
   puts "Welcome to your To-Do list manager, what do you want 'todo'?\n"
-  puts "0 - Create a new list\n1 - Open a existent list\n2 - Exit program"
+  puts "0 - Create a new list\n1 - Open an existent list\n2 - Show all lists\n3 - Exit program"
   answer = gets.chomp.to_i
 
   case (answer)
@@ -27,7 +28,8 @@ loop do
       end
     end
   when 1 then puts("Task opened")
-  when 2 then
+  when 2 then puts("All tasks")
+  when 3 then
     break
   else
     puts("It's not a valid option")
