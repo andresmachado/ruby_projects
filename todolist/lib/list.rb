@@ -1,3 +1,5 @@
+require File.expand_path('./lib/task.rb')
+
 class List
 
   attr_accessor :name
@@ -12,7 +14,7 @@ class List
     create_list_file(@name, PATH, EXTENSION)
   end
 
-  def add_task_to_list(task)
+  def add_task_to_list=(task)
   end
 
   def remove_task_from_list(task)

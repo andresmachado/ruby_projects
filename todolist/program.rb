@@ -2,11 +2,28 @@ require File.expand_path('./lib/list.rb')
 require File.expand_path('./lib/task.rb')
 
 def add_new_list(name)
-  puts("List '#{name}' created!")
+  list = List.new(name)
+  puts("List #{list.name} created")
+  return list
 end
 
-def add_new_task_to_list(description)
-  puts("Task '#{description}' added! to list")
+def add_new_task_to_list(description, list)
+  list.add_new_task_to_list = (description)
+  puts("Task '#{description}' added! to #{list}")
+end
+
+def remove_list(list)
+  puts "Are you sure?"
+  delete = gets.chomp
+  
+  case delete
+  when delete == "yes"
+    list.delete_list
+  when delete == "no"
+    break
+  else
+    puts "I don't know what to do."
+  end
 end
 
 loop do
@@ -21,17 +38,17 @@ loop do
   when answer == "create"
     print "What's the name of the list? "
     name = gets.downcase.chomp!
-    add_new_list(name)
+    new_list = add_new_list(name)
 
     loop do
-      print "Do you want to add new tasks to '#{name}' list? (yes/no) "
+      print "Do you want to add a task to '#{new_list.name}' list? (yes/no) "
       add_task = gets.downcase.chomp
 
       case
       when add_task == "yes"
-        print "Create a description for task: "
+        print "Enter a description for your task: "
         description = gets.chomp
-        add_new_task_to_list(description)
+        add_new_task_to_list(description, new_list)
       when add_task == "no"
         break
       else
