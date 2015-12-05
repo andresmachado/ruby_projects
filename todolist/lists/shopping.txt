@@ -1,0 +1,3 @@
+{:description => Buy some clothes, :status => pending}
+{:description => Buy a MacBook Pro, :status => pending}
+{:description => Pay some bills, :status => pending}
