@@ -13,10 +13,7 @@ def add_new_task_to_list(description, list)
 end
 
 def remove_list(list)
-  puts "Are you sure?"
-  delete = gets.chomp
-  
-  list.delete_list if delete == "yes"
+  list.delete_list
 end
 
 loop do
@@ -29,6 +26,7 @@ loop do
 
   case
   when answer == "create"
+
     print "What's the name of the list? "
     name = gets.downcase.chomp!
     new_list = add_new_list(name)
@@ -49,14 +47,17 @@ loop do
         next
       end
     end
+
   when answer == "open"
     puts("List opened")
   when answer == "show"
     puts("All lists")
   when answer == "delete"
-    puts("Choose an option")
-    puts("[Show] all lists\n[Exit] program)
-    show_lists = gets.downcase.chomp!
+
+    print("Which list do you wish delete? ")
+    list_to_delete = gets.downcase.chomp!
+
+    remove_list(list_to_delete)
 
   when answer == "exit"
     break

@@ -26,7 +26,7 @@ class List
   end
 
   def delete_list
-    File.delete("#{PATH}/#{@name}")
+    File.delete("#{PATH}/#{@name}.#{EXTENSION}")
     puts("List deleted")
   end
 
